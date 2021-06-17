@@ -16,6 +16,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+       
     </head>
     <body class="nav-fixed">
         <nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="sidenavAccordion">
@@ -127,96 +128,35 @@
             <div id="layoutSidenav_content">
                 <main>
                     <!-- Main page content-->
-                    <div class="container mt-5">
+                    <div class="container mt-5" style="align-items: center;">
                         <!-- Custom page header alternative example-->
-                        
-                        <!-- Illustration dashboard card example-->
-                        <div class="row">
-                            <div class="col-xl-3">
-                                <!-- Profile picture card-->
-                                <div class="card">
-                                    <div class="card-header">Imagem</div>
-                                    <div class="card-body text-center">
-                                        <!-- Profile picture image-->
-                                        <img class="img-account-profile rounded-circle mb-2" src="assets/img/illustrations/profiles/profile-1.png" alt="" />
-                                        <!-- Profile picture help block-->
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-9 card ">
-                                <!-- Profile picture card-->
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center justify-content-between">
-                                        <div class="col">
-                                            <h2 class="text-primary">Venda seu computador usado!</h2>
-                                            <p class="text-gray-700">Com o auxilio de nossa ferramenta, venda o seu computador inteiro, ou suas peças individuais</p>
-                                            <a class="btn btn-primary p-3" href="#!">
-                                                Ingressar
-                                                <i class="ml-1" data-feather="arrow-right"></i>
-                                            </a>
-                                            <a class="btn btn-success p-3" href="#!" onclick="adiciona_anuncio()">
-                                                Salvar como favorito
-                                                <i class="ml-1" data-feather="save"></i>
-                                            </a>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="row mb-1 card"> 
+                                    <div class="card-header">Anuncios salvos</div>
+                                    <div class="card-body">
+                                        <div class="datatable">
+                                            <table id="tabela_produto_salvo" class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                                                <thead>
+                                                    
+                                                </thead>
+                                                
+                                                <tbody>
+                                                    
+                                                </tbody>
+                                            </table>
                                         </div>
-                                        <div class="col d-none d-lg-block mt-xxl-n4"><img class="img-fluid px-xl-4 mt-xxl-n5" src="assets/img/illustrations/statistics.svg" /></div>
                                     </div>
-                                </div>
+                                
+                               
                             </div>
-                        </div>
-                        
-                        <div class="container">
                             
-                            <!-- Knowledge base rating-->
-                            <hr class="mt-2 mb-4" />
+
                         </div>
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6 mb-4">
-                                <!-- Dashboard info widget 1-->
-                                <div class="card mb-4">
-                                    <div class="card-body text-center p-5">
-                                        <img class="img-fluid mb-5" src="assets/img/illustrations/data-report.svg" />
-                                        <h4>Titulo do anuncio</h4>
-                                        <p class="mb-4">Resumo breve do anuncio : Ready to get started? Let us know now! It's time to start building that dashboard you've been waiting to create!</p>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 mb-4">
-                                <!-- Dashboard info widget 1-->
-                                <div class="card mb-4">
-                                    <div class="card-body text-center p-5">
-                                        <img class="img-fluid mb-5" src="assets/img/illustrations/data-report.svg" />
-                                        <h4>Titulo do anuncio</h4>
-                                        <p class="mb-4">Resumo breve do anuncio : Ready to get started? Let us know now! It's time to start building that dashboard you've been waiting to create!</p>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 mb-4">
-                                <!-- Dashboard info widget 1-->
-                                <div class="card mb-4">
-                                    <div class="card-body text-center p-5">
-                                        <img class="img-fluid mb-5" src="assets/img/illustrations/data-report.svg" />
-                                        <h4>Titulo do anuncio</h4>
-                                        <p class="mb-4">Resumo breve do anuncio : Ready to get started? Let us know now! It's time to start building that dashboard you've been waiting to create!</p>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 mb-4">
-                                <!-- Dashboard info widget 1-->
-                                <div class="card mb-4">
-                                    <div class="card-body text-center p-5">
-                                        <img class="img-fluid mb-5" src="assets/img/illustrations/data-report.svg" />
-                                        <h4>Titulo do anuncio</h4>
-                                        <p class="mb-4">Resumo breve do anuncio : Ready to get started? Let us know now! It's time to start building that dashboard you've been waiting to create!</p>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                    </div>    
+                        <!-- Illustration dashboard card example-->
+                       
                         
                     </div>
                 </main>
@@ -238,11 +178,6 @@
         <script src="assets/demo/date-range-picker-demo.js"></script>
         <script src="js/startup.js"></script>
         <script src="js/anuncio_salvo.js"></script>
-        <script>
-            function adiciona_anuncio(){
-                escreve_storage({"produto":"venda seu computador usado","link":"http://127.0.0.1:5500/Codigo/anuncio.html#!"})
-                window.open("http://127.0.0.1:5500/Codigo/anuncios_salvos.html#!","_self")
-            }
-        </script>
+        
     </body>
 </html>
