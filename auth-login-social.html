@@ -32,16 +32,16 @@
                                     <hr class="my-0" />
                                     <div class="card-body p-5">
                                         <!-- Login form-->
-                                        <form>
+                                        <form method="post" onsubmit="loginUser (this)">
                                             <!-- Form Group (email address)-->
                                             <div class="form-group">
                                                 <label class="text-gray-600 small" for="emailExample">E-mail</label>
-                                                <input class="form-control form-control-solid" type="text" placeholder="" aria-label="Email Address" aria-describedby="emailExample" />
+                                                <input id="emailUser" class="form-control form-control-solid" type="text" placeholder="" aria-label="Email Address" aria-describedby="emailExample" />
                                             </div>
                                             <!-- Form Group (password)-->
                                             <div class="form-group">
                                                 <label class="text-gray-600 small" for="passwordExample">Senha</label>
-                                                <input class="form-control form-control-solid" type="password" placeholder="" aria-label="Password" aria-describedby="passwordExample" />
+                                                <input id="passwordUser" class="form-control form-control-solid" type="password" placeholder="" aria-label="Password" aria-describedby="passwordExample" />
                                             </div>
                                             <!-- Form Group (forgot password link)-->
                                             <div class="form-group"><a class="small" href="auth-password-social.html">Esqueceu sua senha?</a></div>
@@ -51,8 +51,7 @@
                                                     <input class="custom-control-input small" id="customCheck1" type="checkbox" />
                                                     <label class="custom-control-label" for="customCheck1">Lembrar senha</label>
                                                 </div>
-                                                <a class="btn btn-primary" href="index.html">Login</a>
-                                            </div>
+                                                <a class="btn btn-primary" href="tela-usuario.html">Login</a>                                            </div>
                                         </form>
                                     </div>
                                     <hr class="my-0" />
@@ -72,7 +71,7 @@
                 <footer class="footer mt-auto footer-dark">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-6 small">Copyright &copy; Ciranda do Hardware 2021</div>
+                            <div class="col-md-6 small">Copyright &copy; Bazar do Hardware 2021</div>
                             <div class="col-md-6 text-md-right small">
                                 <a href="#!">Privacy Policy</a>
                                 &middot;
@@ -83,8 +82,30 @@
                 </footer>
             </div>
         </div>
+        <script>
+                // Declara uma função para processar o formulário de login
+        function processaFormLogin(event) {
+            // Cancela a submissão do formulário para tratar sem fazer refresh da tela
+            event.preventDefault();
+
+            // Obtem os dados de login e senha a partir do formulário de login
+            var email = document.getElementById('emailUser').value;
+            var password = document.getElementById('passwordUser').value;
+
+            // Valida login e se estiver ok, redireciona para tela inicial da aplicação
+            resultadoLogin = loginUser(email, password)
+            if (resultadoLogin) {
+                window.location.href = '../tela-usuario.html';
+            }
+            else { // Se login falhou, avisa ao usuário
+                alert('Usuário ou senha incorretos');
+            }
+        }
+    </script>
+        
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/login.js"></script>
         <script src="js/scripts.js"></script>
     </body>
 </html>
